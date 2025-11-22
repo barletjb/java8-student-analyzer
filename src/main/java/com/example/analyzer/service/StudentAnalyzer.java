@@ -6,6 +6,7 @@ import com.example.analyzer.model.Student;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// TODO : TEST UNITAIRES
 public class StudentAnalyzer {
 
     private final List<Student> students;
@@ -17,6 +18,7 @@ public class StudentAnalyzer {
     public List<Student> filter(StudentPredicate studentPredicate) {
         return students.stream()
                 .filter(studentPredicate::test)
+                .peek(System.out::println)
                 .collect(Collectors.toList());
     }
 
@@ -24,6 +26,7 @@ public class StudentAnalyzer {
         return students.stream()
                 .sorted(Comparator.comparingDouble(Student::getGpa).reversed()
                         .thenComparing(Student::getName))
+                .peek(System.out::println)
                 .collect(Collectors.toList());
     }
 
@@ -31,6 +34,7 @@ public class StudentAnalyzer {
         return students.stream()
                 .sorted(Comparator.comparingDouble(Student::getGpa)
                         .thenComparing(Student::getName))
+                .peek(System.out::println)
                 .collect(Collectors.toList());
     }
 
@@ -47,12 +51,14 @@ public class StudentAnalyzer {
     public List<String> mapToEmails() {
         return students.stream()
                 .map(Student::getEmail)
+                .peek(System.out::println)
                 .collect(Collectors.toList());
     }
 
     public Optional<Student> findStudentById(String id) {
         return students.stream()
                 .filter(student -> student.getId().equals(id))
+                .peek(System.out::println)
                 .findFirst();
     }
 
