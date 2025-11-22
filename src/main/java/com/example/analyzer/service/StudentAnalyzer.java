@@ -3,6 +3,7 @@ package com.example.analyzer.service;
 import com.example.analyzer.functional.StudentPredicate;
 import com.example.analyzer.model.Student;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,4 +20,24 @@ public class StudentAnalyzer {
                 .filter(studentPredicate::test)
                 .collect(Collectors.toList());
     }
+
+    public List<Student> sortByGpaDesc(List<Student> students) {
+        return students.stream()
+                .sorted(Comparator.comparingDouble(Student::getGpa).reversed()
+                        .thenComparing(Student::getName))
+                .collect(Collectors.toList());
+    }
+
+    public List<Student> sortByGpaAsc(List<Student> students) {
+        return students.stream()
+                .sorted(Comparator.comparingDouble(Student::getGpa)
+                        .thenComparing(Student::getName))
+                .collect(Collectors.toList());
+    }
+
+
+
+
+
+
 }

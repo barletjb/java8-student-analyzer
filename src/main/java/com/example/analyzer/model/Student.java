@@ -20,28 +20,12 @@ public class Student {
         this.email = email;
     }
 
-    public String getId() { return id;}
-
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getMajor() {
-        return major;
-    }
-
-    public double getGpa() {
-        return gpa;
-    }
-
-    public String getEmail() {
-        return email;
-    }
+    public String getId() { return id; }
+    public String getName() { return name; }
+    public int getAge() { return age; }
+    public String getMajor() { return major; }
+    public double getGpa() { return gpa; }
+    public String getEmail() { return email; }
 
     @Override
     public boolean equals(Object obj) {
