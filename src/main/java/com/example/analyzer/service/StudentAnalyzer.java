@@ -21,19 +21,21 @@ public class StudentAnalyzer {
                 .collect(Collectors.toList());
     }
 
-    public List<Student> sortByGpaDesc(List<Student> students) {
+    public List<Student> sortByGpaDesc() {
         return students.stream()
                 .sorted(Comparator.comparingDouble(Student::getGpa).reversed()
                         .thenComparing(Student::getName))
                 .collect(Collectors.toList());
     }
 
-    public List<Student> sortByGpaAsc(List<Student> students) {
+    public List<Student> sortByGpaAsc() {
         return students.stream()
                 .sorted(Comparator.comparingDouble(Student::getGpa)
                         .thenComparing(Student::getName))
                 .collect(Collectors.toList());
     }
+
+
 
 
 
